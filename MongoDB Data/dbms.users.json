@@ -1,0 +1,132 @@
+[{
+  "_id": 1,
+  "username": "bpittman",
+  "password": "k#DLp3AzSg",
+  "full_name": "Jordan Wilson",
+  "address": "91827 Cooper Route Apt. 552, South Timothy, NH 49033",
+  "phone_number": "507.883.7895",
+  "email": "andreabolton@example.org",
+  "role": "user"
+},
+{
+  "_id": 6,
+  "username": "stephenlynch",
+  "password": "S#5*(We8($",
+  "full_name": "Amy Walton",
+  "address": "Unit 7641 Box 9826, DPO AA 09567",
+  "phone_number": "(919)962-7415x03222",
+  "email": "michael65@example.com",
+  "role": "user"
+},
+{
+  "_id": 10,
+  "username": "rsutton",
+  "password": "%PF3phshu2",
+  "full_name": "Bryan Ingram",
+  "address": "651 Paul Trafficway, Jeffreybury, GA 78254",
+  "phone_number": "(731)358-9483x9163",
+  "email": "jacksonpamela@example.com",
+  "role": "library_manager"
+},
+{
+  "_id": 7,
+  "username": "tamarafrazier",
+  "password": "x%a00ZfB@p",
+  "full_name": "Richard Meyer II",
+  "address": "3335 Wood Viaduct, Beckyhaven, AZ 28240",
+  "phone_number": "+1-605-226-7553",
+  "email": "susan27@example.com",
+  "role": "user"
+},
+{
+  "_id": 5,
+  "username": "burtonwilliam",
+  "password": ")68O2Zr+FJ",
+  "full_name": "John Nguyen",
+  "address": "50192 Ayala Neck, New Dianemouth, VA 83686",
+  "phone_number": "331-558-7917x096",
+  "email": "margaretsmith@example.org",
+  "role": "user"
+},
+{
+  "_id": 0,
+  "username": "admin",
+  "password": "password",
+  "full_name": "Michael Richard MD",
+  "address": "82823 Hudson Hill Apt. 742, Mccoyfort, MA 53597",
+  "phone_number": "+1-736-313-6320x6020",
+  "email": "ilopez@example.com",
+  "role": "user"
+},
+{
+  "_id": 8,
+  "username": "autumnjimenez",
+  "password": "%*1Io9ugC%",
+  "full_name": "Christopher Conway",
+  "address": "USCGC Thompson, FPO AA 68259",
+  "phone_number": "579-371-7031x307",
+  "email": "tyler70@example.net",
+  "role": "user"
+},
+{
+  "_id": 4,
+  "username": "lisaelliott",
+  "password": "3oVSDOBO#^",
+  "full_name": "Crystal Campos",
+  "address": "96325 Emily Island Suite 278, New Michael, GA 05324",
+  "phone_number": "230.707.1039x34495",
+  "email": "carolyn43@example.com",
+  "role": "user"
+},
+{
+  "_id": 9,
+  "username": "jhope",
+  "password": "jimin",
+  "full_name": "Bryan Baker",
+  "address": "59811 Charlotte Plaza, Richardside, AK 60209",
+  "phone_number": "472.393.5377",
+  "email": "qortiz@example.org",
+  "role": "user"
+},
+{
+  "_id": 2,
+  "username": "normanpatricia",
+  "password": "kCzItWh2&5",
+  "full_name": "Robert Vasquez",
+  "address": "7864 Allison Hollow, Lake Prestonstad, FL 47221",
+  "phone_number": "236-437-5186",
+  "email": "ldominguez@example.org",
+  "role": "user"
+},
+{
+  "_id": 3,
+  "username": "fdaniels",
+  "password": "D8SmBbZL+3",
+  "full_name": "Jeremy Farrell",
+  "address": "653 Tanner Mount, West Richard, NH 92209",
+  "phone_number": "(934)278-5409x6941",
+  "email": "rebecca23@example.net",
+  "role": "user"
+},
+{
+  "_id": 11,
+  "username": "lisa",
+  "password": "suga",
+  "full_name": "Joanna Taylor",
+  "address": "827 Crawford Fort Suite 514, Justinborough, AK 08781",
+  "phone_number": "(210)644-8844",
+  "email": "sharonlindsey@example.com",
+  "role": "library_manager"
+},
+{
+  "_id": {
+    "$oid": "64c2069faa999d829eac7e25"
+  },
+  "username": "lisa10",
+  "password": "suga1",
+  "full_name": "Joanna Taylor",
+  "address": "827 Crawford Fort Suite 514, Justinborough, AK 08781",
+  "phone_number": "(210)644-8844",
+  "email": "sharonlindsey@example.com",
+  "role": "library_manager"
+}]

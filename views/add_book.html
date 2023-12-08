@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add a new book</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      width: 500px;
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin: auto;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <form id="add-book-form">
+    <h2>Add a new book</h2>
+    <label for="bookId">Book ID:</label>
+    <input type="number" id="bookId" name="bookId" required><br>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required><br>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" required><br>
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" required><br>
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" required><br>
+    <label for="publisher">Publisher:</label>
+    <input type="text" id="publisher" name="publisher" required><br>
+    <label for="copies">Copies (separated by commas):</label>
+    <input type="text" id="copies" name="copies" required><br>
+    <input type="submit" value="Add Book">
+  </form>
+
+  <script>
+    document.getElementById('add-book-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const _id = parseInt(document.getElementById('bookId').value);
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+      const price = parseFloat(document.getElementById('price').value);
+      const author = document.getElementById('author').value;
+      const publisher = document.getElementById('publisher').value;
+      const copies = document.getElementById('copies').value.split(',');
+
+      const response = await fetch('/books', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ _id, title, description, price, author, publisher, copies })
+      });
+
+      const data = await response.json();
+
+      alert(data.message); // Show the success or error message returned from the server
+    });
+  </script>
+</body>
+</html>

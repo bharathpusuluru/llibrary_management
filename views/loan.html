@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Loans</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1em;
+            background-color: #f9f9f9;
+        }
+        #loans {
+            display: flex;
+            flex-direction: column;
+            gap: 1em;
+        }
+        .loan-item {
+            padding: 1em;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .loan-item p {
+            margin: 0;
+        }
+        button {
+            margin-top: 1em;
+            padding: 0.5em 1em;
+            background-color: #4CAF50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h2>My Loans</h2>
+    <div id="loans"></div>
+    <script>
+        const userId = 9;  // Set this to the ID of the current user
+        fetch(`/loan?userId=${userId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(loans => {
+            const loanDiv = document.getElementById('loans');
+            loans.forEach(loan => {
+                const div = document.createElement('div');
+                div.className = 'loan-item';
+                const p = document.createElement('p');
+                p.textContent = `Book ID: ${loan.bookId}, Borrow Date: ${loan.borrowDate}, Due Date: ${loan.dueDate}`;
+
+                // Create a button that will redirect to the return page when clicked
+                const button = document.createElement('button');
+                button.textContent = 'Return';
+                button.onclick = () => {
+                    // Store the loanId in local storage so it can be accessed on the return page
+                    window.localStorage.setItem('loanId', loan._id);
+                    // Redirect to the return page
+                    window.location.href = '/return';
+                };
+
+                div.appendChild(p);
+                div.appendChild(button);
+                loanDiv.appendChild(div);
+            });
+        })
+        .catch(e => {
+            console.log('There was a problem with the fetch operation: ' + e.message);
+        });
+    </script>
+</body>
+</html>

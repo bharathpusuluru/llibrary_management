@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Add/Remove Book Copy</title>
+</head>
+<body>
+  <h2>Add/Remove Book Copy</h2>
+
+  <form id="add-copy-form">
+    <label for="bookId">Book ID:</label>
+    <input type="text" id="bookId" name="bookId" required><br>
+    <input type="submit" value="Add Copy">
+  </form>
+
+  <form id="remove-copy-form">
+    <label for="bookId">Book ID:</label>
+    <input type="text" id="bookId" name="bookId" required><br>
+    <input type="submit" value="Remove Copy">
+  </form>
+
+  <script>
+    document.getElementById('add-copy-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const bookId = document.getElementById('bookId').value;
+
+      const response = await fetch(`/books/${bookId}/add-copy`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      const data = await response.json();
+      alert(data.message);
+    });
+
+    document.getElementById('remove-copy-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const bookId = document.getElementById('bookId').value;
+
+      const response = await fetch(`/books/${bookId}/remove-copy`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      const data = await response.json();
+      alert(data.message);
+    });
+  </script>
+</body>
+</html>

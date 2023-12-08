@@ -1,0 +1,54 @@
+// Filename: server.js
+const express = require('express');
+const MongoClient = require('mongodb').MongoClient;
+const bodyParser = require('body-parser');
+
+const app = express();
+
+// MongoDB connection URL and DB name
+const url = 'mongodb+srv://divyapusuluru:Divya2000@cluster0.zdhbusz.mongodb.net/';
+const dbName = 'dbms';
+
+app.use(bodyParser.urlencoded({ extended: true }));
+
+// HTML for the login form
+const form = `
+<form action="/login" method="post">
+  <label for="username">Username:</label><br>
+  <input type="text" id="username" name="username"><br>
+  <label for="password">Password:</label><br>
+  <input type="password" id="password" name="password">
+  <input type="submit" value="Submit">
+</form>
+`;
+
+// Root route serves the form
+app.get('/', (req, res) => {
+  res.send(form);
+});
+
+// Login route checks the MongoDB for the user
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
+
+  MongoClient.connect(url, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+    console.log("Connected successfully to server");
+
+    const db = client.db(dbName);
+    const usersCollection = db.collection('users');
+    
+    usersCollection.findOne({username, password}, (err, user) => {
+      if (user) {
+        res.send('Logged in successfully!');
+      } else {
+        res.send('Invalid username or password!');
+      }
+    });
+    
+    client.close();
+  });
+});
+
+app.listen(3000, () => {
+  console.log('Server is running on port 3000');
+});

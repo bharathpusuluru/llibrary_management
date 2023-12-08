@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>View Borrowing Records</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    #loan-list {
+      width: 80%;
+      max-width: 800px;
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      margin-bottom: 20px;
+      overflow-x: auto;
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 10px;
+      border-bottom: 1px solid #ccc;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h2>View Borrowing Records</h2>
+  <div id="loan-list"></div>
+
+  <script>
+    async function fetchLoans() {
+      try {
+        const response = await fetch('/loans');
+        const loans = await response.json();
+        return loans;
+      } catch (error) {
+        console.error('Error occurred while fetching borrowing records:', error);
+        return [];
+      }
+    }
+
+    function displayLoans(loans) {
+      const loanList = document.getElementById('loan-list');
+
+      if (loans.length === 0) {
+        loanList.innerHTML += '<p>No borrowing records found.</p>';
+        return;
+      }
+
+      let html = '<table>';
+      html += '<tr><th>User ID</th><th>Book ID</th><th>Borrow Date</th><th>Due Date</th><th>Return Date</th></tr>'
+      loans.forEach(loan => {
+        html += `<tr><td>${loan.userId}</td><td>${loan.bookId}</td><td>${loan.borrowDate}</td><td>${loan.dueDate}</td><td>${loan.returnDate || 'Not returned'}</td></tr>`;
+      });
+      html += '</table>';
+
+      loanList.innerHTML += html;
+    }
+
+    async function init() {
+      const loans = await fetchLoans();
+      displayLoans(loans);
+    }
+
+    init();
+  </script>
+</body>
+</html>

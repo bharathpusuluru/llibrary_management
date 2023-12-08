@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Manager Page</title>
+  <style>
+    body {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    
+    h2 {
+      margin-bottom: 50px;
+    }
+
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+
+    button {
+      display: block;
+      margin: 10px;
+      padding: 15px 30px;
+      font-size: 1.2em;
+      border: none;
+      border-radius: 5px;
+      color: white;
+      background-color: #007BFF;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <h2>Welcome Manager!</h2>
+  
+  <div class="btn-group">
+    <!-- Add Book Button -->
+    <button id="add-book-btn">Add Book</button>
+    
+    <!-- Update Book Button -->
+    <button id="update-book-btn">Update Book</button>
+
+    <!-- Add Copy Button -->
+    <button id="add-btn">Add Copy</button>
+  </div>
+  
+  <div class="btn-group">
+    <!-- Remove Copy Button -->
+    <button id="remove-btn">Remove Copy</button>
+
+    <!-- View Loans Button -->
+    <button id="view-loans-btn">View Loans</button>
+    
+    <!-- Extend Loan Due Date Button -->
+    <button id="extend-loans-btn">Extend Loan Due Date</button>
+
+    <!-- Popular Books Button -->
+    <button id="popularity-btn">Popular Books</button>
+  </div>
+
+
+    <script>
+    // Redirect to add_book.html when Add Book button is clicked
+    document.getElementById('add-book-btn').addEventListener('click', () => {
+      window.location.href = '/add_book.html';
+    });
+    
+    // Redirect to update_book.html when Update Book button is clicked
+    document.getElementById('update-book-btn').addEventListener('click', () => {
+      window.location.href = '/update_book.html';
+    });
+
+    // Redirect to add_copy.html when Add Copy button is clicked
+    document.getElementById('add-btn').addEventListener('click', () => {
+      window.location.href = '/add_copy.html';
+    });
+
+    // Redirect to remove_copy.html when Remove Copy button is clicked
+    document.getElementById('remove-btn').addEventListener('click', () => {
+      window.location.href = '/remove_copy.html';
+    });
+
+    // Redirect to view_loans.html when View Loans button is clicked
+    document.getElementById('view-loans-btn').addEventListener('click', () => {
+      window.location.href = '/view_loans.html';
+    });
+
+    // Redirect to extend_due_date.html when Extend Loan Due Date button is clicked
+    document.getElementById('extend-loans-btn').addEventListener('click', () => {
+      window.location.href = '/extend_due_date.html';
+    });
+
+    document.getElementById('popularity-btn').addEventListener('click', () => {
+      window.location.href = '/popularity.html';
+    });
+
+  </script>
+  
+</body>
+</html>

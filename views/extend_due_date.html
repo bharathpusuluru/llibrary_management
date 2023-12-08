@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Extend Due Date</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    #extend-due-date-form {
+      width: 100%;
+      max-width: 500px;
+      padding: 2em;
+      margin: auto;
+      background: white;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    label {
+      display: block;
+      margin-bottom: 0.5em;
+    }
+    input[type="text"], input[type="date"] {
+      width: 100%;
+      padding: 0.5em;
+      margin-bottom: 1em;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      box-sizing: border-box;
+    }
+    input[type="submit"] {
+      width: 100%;
+      padding: 0.7em;
+      border-radius: 5px;
+      border: none;
+      color: white;
+      background-color: #007BFF;
+      cursor: pointer;
+      box-sizing: border-box;
+    }
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <div id="extend-due-date-form">
+    <h2>Extend Due Date</h2>
+
+    <form>
+      <label for="loanId">Loan ID:</label>
+      <input type="text" id="loanId" name="loanId" required>
+
+      <label for="dueDate">New Due Date:</label>
+      <input type="date" id="dueDate" name="dueDate" required>
+
+      <input type="submit" value="Extend Due Date">
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('extend-due-date-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+  
+      const loanId = document.getElementById('loanId').value; 
+      const dueDate = document.getElementById('dueDate').value;
+  
+      try {
+        const response = await fetch(`/loans/${loanId}/extend-due-date`, { 
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ dueDate })
+        });
+  
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+  
+        const data = await response.json();
+        alert(data.message);
+      } catch (error) {
+        console.error('There has been a problem with your fetch operation:', error);
+        alert('An error occurred. Please check the console for details.');
+      }
+    });
+  </script>
+  
+  
+
+  </script>
+</body>
+</html>

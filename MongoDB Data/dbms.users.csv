@@ -1,0 +1,14 @@
+_id,username,password,full_name,address,phone_number,email,role
+1,bpittman,k#DLp3AzSg,Jordan Wilson,"91827 Cooper Route Apt. 552, South Timothy, NH 49033",507.883.7895,andreabolton@example.org,user
+6,stephenlynch,S#5*(We8($,Amy Walton,"Unit 7641 Box 9826, DPO AA 09567",(919)962-7415x03222,michael65@example.com,user
+10,rsutton,%PF3phshu2,Bryan Ingram,"651 Paul Trafficway, Jeffreybury, GA 78254",(731)358-9483x9163,jacksonpamela@example.com,library_manager
+7,tamarafrazier,x%a00ZfB@p,Richard Meyer II,"3335 Wood Viaduct, Beckyhaven, AZ 28240",+1-605-226-7553,susan27@example.com,user
+5,burtonwilliam,)68O2Zr+FJ,John Nguyen,"50192 Ayala Neck, New Dianemouth, VA 83686",331-558-7917x096,margaretsmith@example.org,user
+0,admin,password,Michael Richard MD,"82823 Hudson Hill Apt. 742, Mccoyfort, MA 53597",+1-736-313-6320x6020,ilopez@example.com,user
+8,autumnjimenez,%*1Io9ugC%,Christopher Conway,"USCGC Thompson, FPO AA 68259",579-371-7031x307,tyler70@example.net,user
+4,lisaelliott,3oVSDOBO#^,Crystal Campos,"96325 Emily Island Suite 278, New Michael, GA 05324",230.707.1039x34495,carolyn43@example.com,user
+9,jhope,jimin,Bryan Baker,"59811 Charlotte Plaza, Richardside, AK 60209",472.393.5377,qortiz@example.org,user
+2,normanpatricia,kCzItWh2&5,Robert Vasquez,"7864 Allison Hollow, Lake Prestonstad, FL 47221",236-437-5186,ldominguez@example.org,user
+3,fdaniels,D8SmBbZL+3,Jeremy Farrell,"653 Tanner Mount, West Richard, NH 92209",(934)278-5409x6941,rebecca23@example.net,user
+11,lisa,suga,Joanna Taylor,"827 Crawford Fort Suite 514, Justinborough, AK 08781",(210)644-8844,sharonlindsey@example.com,library_manager
+64c2069faa999d829eac7e25,lisa10,suga1,Joanna Taylor,"827 Crawford Fort Suite 514, Justinborough, AK 08781",(210)644-8844,sharonlindsey@example.com,library_manager

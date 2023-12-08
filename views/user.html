@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>User Page</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            color: #333;
+        }
+        button {
+            display: block;
+            width: 200px;
+            height: 50px;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            background-color: #007BFF;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to the User Page</h1>
+    <button onclick="window.location.href='search.html'">Search for a Book</button>
+    <button onclick="window.location.href='borrow.html'">Borrow a Book</button>
+    <button onclick="window.location.href='loan.html'">View Loans</button>
+    <button onclick="window.location.href='loan.html'">Return a Book</button>
+</body>
+</html>

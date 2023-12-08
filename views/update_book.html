@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Update Book</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      width: 500px;
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <form id="update-form">
+    <h2>Update Book</h2>
+    <label for="bookId">Book ID:</label>
+    <input type="text" id="bookId" name="bookId" required><br>
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required><br>
+    <label for="description">Description:</label>
+    <input type="text" id="description" name="description" required><br>
+    <label for="price">Price:</label>
+    <input type="number" id="price" name="price" required><br>
+    <label for="author">Author:</label>
+    <input type="text" id="author" name="author" required><br>
+    <label for="publisher">Publisher:</label>
+    <input type="text" id="publisher" name="publisher" required><br>
+    <label for="copies">Copies:</label>
+    <input type="number" id="copies" name="copies" required><br>
+    <input type="submit" value="Update Book">
+  </form>
+
+  <script>
+    document.getElementById('update-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const bookId = document.getElementById('bookId').value;
+      const title = document.getElementById('title').value;
+      const description = document.getElementById('description').value;
+      const price = document.getElementById('price').value;
+      const author = document.getElementById('author').value;
+      const publisher = document.getElementById('publisher').value;
+
+      const response = await fetch(`/books/${bookId}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ title, description, price, author, publisher })
+      });
+
+      const data = await response.json();
+      alert(data.message);
+    });
+  </script>
+</body>
+</html>

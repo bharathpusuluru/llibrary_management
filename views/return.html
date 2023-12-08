@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Return a Book</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 1em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        #return-form {
+            background: #FFFFFF;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            margin-top: 20px;
+        }
+
+        #return-form label {
+            font-weight: bold;
+        }
+
+        #return-form input[type="text"] {
+            border: 1px solid #000000;
+            box-sizing: border-box;
+            border-radius: 5px;
+            margin-top: 10px;
+            padding: 10px;
+            width: 100%;
+        }
+
+        #return-form input[type="submit"] {
+            background: #007BFF;
+            border-radius: 5px;
+            color: white;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 2px;
+            cursor: pointer;
+            border: none;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Return a Book</h2>
+    <form id="return-form">
+        <label for="bookId">Book ID:</label>
+        <input type="text" id="bookId" name="bookId">
+        <input type="submit" value="Return Book">
+    </form>
+
+    <script>
+        document.getElementById('return-form').addEventListener('submit', async function (e) {
+            e.preventDefault();
+
+            const bookId = document.getElementById('bookId').value;
+            const userId = "user123"; // Replace "user123" with the hardcoded user ID
+
+            const response = await fetch('/return', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ userId, bookId })
+            });
+
+            const data = await response.json();
+
+            alert(data.message); // Show the success or error message returned from the server
+        });
+    </script>
+</body>
+</html>

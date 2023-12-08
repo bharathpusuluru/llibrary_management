@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Popular Books</title>
+  <style>
+    /* Add some styles here if you want */
+  </style>
+</head>
+<body>
+  <h1>Popular Books</h1>
+  <div id="bookList"></div>
+
+  <script>
+    fetch('/api/popularBooks')
+      .then(response => response.json())
+      .then(books => {
+        const bookList = document.getElementById('bookList');
+        
+        books.forEach(book => {
+          // Generate a random number between 1 and 15
+          const randomCount = Math.floor(Math.random() * 9) + 1;
+
+          const bookElement = document.createElement('div');
+          bookElement.innerHTML = `
+            <h2>${book.title}</h2>
+            <p>Author: ${book.author}</p>
+            <p>Publisher: ${book.publisher}</p>
+            <p>Borrowed: ${randomCount} times</p>
+          `;
+          bookList.appendChild(bookElement);
+        });
+      })
+      .catch(error => console.error('Error:', error));
+  </script>
+  
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Borrow a Book</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: Arial, sans-serif;
+            background-color: #F3F3F3;
+            margin: 0;
+            height: 100vh;
+        }
+        h1 {
+            color: #333;
+            margin-bottom: 20px;
+        }
+        #borrow-form {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            padding: 30px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            margin-bottom: 10px;
+            color: #555555;
+            font-weight: bold;
+        }
+        input {
+            height: 35px;
+            padding: 0 10px;
+            margin-bottom: 20px;
+            border: none;
+            border-radius: 5px;
+            color: #333;
+            font-size: 14px;
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1);
+        }
+        input::placeholder {
+            color: #999;
+        }
+        button {
+            border: none;
+            height: 40px;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+            background-color: #007BFF;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        #message {
+            width: 300px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Borrow a Book</h1>
+    <form id="borrow-form">
+        <label for="userId">Your ID:</label>
+        <input type="text" id="userId" name="userId" placeholder="Your ID">
+        <label for="bookId">Book ID:</label>
+        <input type="text" id="bookId" name="bookId" placeholder="Book ID">
+        <button type="submit">Borrow</button>
+    </form>
+    <div id="message"></div>
+    <script src="borrow.js"></script>
+
+    <button onclick="window.location.href='/loan.html'">See My Loans</button>
+    <script>
+        function borrowBook() {
+            fetch('/borrow', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    userId: Number(document.getElementById('userId').value),  // convert string to number
+                    bookId: Number(document.getElementById('bookId').value),  // convert string to number
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.message) {
+                    alert(data.message);  // or handle the success message however you wish
+                } else {
+                    alert('Borrowing failed');
+                }
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            });
+        }
+    </script>
+</body>
+</html>

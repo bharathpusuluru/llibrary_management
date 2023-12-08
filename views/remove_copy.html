@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Remove Copy</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      width: 500px;
+      background: white;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    label {
+      display: block;
+      margin: 10px 0;
+    }
+
+    input[type="text"], input[type="number"] {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+
+    input[type="submit"] {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin-top: 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <form id="remove-copy-form">
+    <h2>Remove Copy</h2>
+    <label for="bookId">Book ID:</label>
+    <input type="text" id="bookId" name="bookId" required><br>
+    <input type="submit" value="Remove Copy">
+  </form>
+
+  <script>
+    document.getElementById('remove-copy-form').addEventListener('submit', async function (e) {
+      e.preventDefault();
+
+      const bookId = document.getElementById('bookId').value;
+
+      const response = await fetch(`/books/${bookId}/remove-copy`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+
+      const data = await response.json();
+      alert(data.message);
+    });
+  </script>
+</body>
+</html>

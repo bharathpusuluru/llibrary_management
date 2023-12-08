@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0;
+      font-family: Arial, sans-serif;
+    }
+
+    form {
+      width: 500px; /* Increase the width of the form */
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    input[type="text"], input[type="password"] {
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0 15px;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      box-sizing: border-box; /* Add this line */
+    }
+
+    input[type="submit"] {
+      width: 100%;
+      padding: 10px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      box-sizing: border-box; /* Add this line */
+    }
+
+    input[type="submit"]:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+  <form action="/login" method="POST">
+    <h1>Login</h1>
+    <label for="username">Username:</label><br>
+    <input type="text" id="username" name="username" required><br>
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" required><br>
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
